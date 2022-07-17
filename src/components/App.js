@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <h2>My tasks</h2>
-      <CategoryFilter />
+      <CategoryFilter categories={CATEGORIES} selectedCategory={category} onSelectCategory={setCategory}/>
       <NewTaskForm />
       <TaskList tasks={filteredTasks} onDeleteTask={handleDeleteTask}/>
     </div>
