@@ -16,13 +16,17 @@ function App() {
   const filteredTasks = tasks.filter(
     (task) => category === "All" || task.category === category
   );
+
+  function handleDeleteTask(deletedTaskText) {
+    setTasks(tasks.filter((task) => task.text !== deletedTaskText));
+  }
   
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter />
       <NewTaskForm />
-      <TaskList tasks={filteredTasks}/>
+      <TaskList tasks={filteredTasks} onDeleteTask={handleDeleteTask}/>
     </div>
   );
 }
